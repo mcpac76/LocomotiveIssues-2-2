@@ -1,0 +1,21 @@
+﻿@model LocomotiveIssues.Models.User.DeleteUserModel
+
+<div class="jumbotron">
+<div class="page-header text-center">
+    <h5>Usuwanie użytkownika</h5>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(u => u.Id)
+    <div>
+        Czy napewno chcesz usunąć tego użytkownika?
+    </div>
+
+    <input type="submit" class="btn btn-danger" value="Usuń" />
+    @Html.ActionLink("Powrót", "List", "User", null, new { @class = "btn btn-success" })
+} 
+</div>
+
+
+

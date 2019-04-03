@@ -1,0 +1,41 @@
+﻿
+@model IEnumerable<LocomotiveIssues.Models.User.UserModel>
+
+<div class="page-header text-center">
+    <h5>Lista użytkowników</h5>
+</div>
+ 
+<div class="table-responsive, table-hover">
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Firma</th>
+                <th>Ulica</th>
+                <th>Miasto</th>
+                <th>Kod pocztowy</th>
+                <th>Numer telefonu</th>
+                <th>Edytowanie</th>
+                <th>Usuwanie</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in Model)
+            {
+                <tr>
+                    <td>@u.CompanyName</td>
+                    <td>@u.StreetName</td>
+                    <td>@u.CityName</td>
+                    <td>@u.PostalCode</td>
+                    <td>@u.PhoneNumber</td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { u.Id })"><input type="submit" class="btn btn-success" value="Edytuj" /></a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Delete", new { u.Id })"><input type="submit" class="btn btn-danger" value="Usuń" /></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a href="@Url.Action("Add")"><input type="submit" class="btn btn-primary" value="Dodaj" /></a>

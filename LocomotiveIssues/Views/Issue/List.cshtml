@@ -1,0 +1,50 @@
+﻿@model IEnumerable<LocomotiveIssues.Models.Issue.IssueModel>
+
+<div class="page-header text-center">
+    <h5>Lista zgłoszeniowa</h5>
+</div>
+
+<div class="table-responsive, table-hover">
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Numer zgłoszenia</th>
+                <th>Typ</th>
+                <th>Numer</th>
+                <th>Numer boczny</th>
+                <th>Firma</th>
+                <th>Data zgłoszenia</th>
+                <th>Data stwierdzenia usterki</th>
+                <th>Data zakończenia naprawy</th>
+                <th>Rodzaj usterki</th>
+                <th>Opis usterki</th>
+                <th>Uznanie gwarancji</th>
+                <th>Wyłączenie z eksploatacji</th>
+                <th>Edytowanie</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var f in Model)
+            {
+            <tr>
+                <td>@f.RegistrationNumber</td>
+                <td>@f.VehicleType</td>
+                <td>@f.VehicleNumber</td>
+                <td>@f.VehicleSideNumber</td>
+                <td>@f.CompanyName</td>
+                <td>@f.DateOfRegistration</td>
+                <td>@f.DateOfIssue</td>
+                <td>@f.DateOfEnd</td>
+                <td>@f.IssueCategoryName</td>
+                <td>@f.IssueDescription</td>
+                <td>@f.IsGuarantee</td>
+                <td>@f.IsActive</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { f.Id })"><input type="submit" class="btn btn-success" value="Edytuj" /></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+    <a href="@Url.Action("Add")"><input type="submit" class="btn btn-primary" value="Dodaj" /></a>

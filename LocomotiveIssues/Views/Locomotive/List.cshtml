@@ -1,0 +1,37 @@
+﻿@model IEnumerable<LocomotiveIssues.Models.Locomotive.LocomotiveModel>
+
+<div class="page-header text-center">
+    <h5>Lista lokomotyw</h5>
+</div>
+
+<div class="table-responsive, table-hover">
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Typ</th>
+                <th>Numer</th>
+                <th>Numer boczny</th>
+                <th>Edytowanie</th>
+                <th>Usuwanie</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var l in Model)
+            {
+                <tr>
+                    <td>@l.VehicleType</td>
+                    <td>@l.VehicleNumber</td>
+                    <td>@l.VehicleSideNumber</td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { l.Id })"><input type="submit" class="btn btn-success" value="Edytuj" /></a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Delete", new { l.Id })"><input type="submit" class="btn btn-danger" value="Usuń" /></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+    <a href="@Url.Action("Add")"><input type="submit" class="btn btn-primary" value="Dodaj" /></a>
+

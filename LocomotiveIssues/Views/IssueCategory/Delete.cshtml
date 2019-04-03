@@ -1,0 +1,22 @@
+﻿@model LocomotiveIssues.Models.IssueCategory.DeleteIssueCategoryModel
+<div class="jumbotron">
+    <div class="page-header text-center">
+        <h5>Usuwanie kategorii usterek</h5>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(i => i.Id)
+
+        <div>
+            Czy napewno chcesz usunąć tą kategorię usterki?
+        </div>
+
+        <input type="submit" class="btn btn-danger" value="Usuń" />
+        @Html.ActionLink("Powrót", "List", "IssueCategory", null, new { @class = "btn btn-success" })
+    }
+</div>
+
+
+
+

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<LocomotiveIssues.Models.IssueCategory.IssueCategoryModel>
+
+<div class="page-header text-center">
+    <h5>Lista usterek</h5>
+</div>
+
+<div class="table-responsive, table-hover">
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Numer usterki</th>
+                <th>Rodzaj usterki</th>
+                <th>Opis usterki</th>
+                <th>Edytowanie</th>
+                <th>Usuwanie</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>@i.IssueCategoryNumber</td>
+                    <td>@i.IssueCategoryName</td>
+                    <td>@i.IssueCategoryDescription</td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { i.Id })"><input type="submit" class="btn btn-success" value="Edytuj" /></a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Delete", new { i.Id })"><input type="submit" class="btn btn-danger" value="Usuń" /></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+    <a href="@Url.Action("Add")"><input type="submit" class="btn btn-primary" value="Dodaj" /></a>

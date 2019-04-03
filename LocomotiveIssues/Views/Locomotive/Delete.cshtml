@@ -1,0 +1,27 @@
+﻿@model LocomotiveIssues.Models.Locomotive.DeleteLocomotiveModel
+
+<div class="jumbotron">
+    <div class="page-header text-center">
+        <h5>Usuwanie lokomotywy</h5>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        <div class="jumbotron">
+            @Html.HiddenFor(l => l.Id)
+
+            <div>
+                Czy napewno chcesz usunąć tą lokomotywę?
+            </div>
+
+            <input type="submit" class="btn btn-danger" value="Usuń" />
+            @Html.ActionLink("Powrót", "List", "Locomotive", null, new { @class = "btn btn-success" })
+        </div>
+    }
+    </div>
+
+
+
+
+
+
